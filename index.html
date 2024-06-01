@@ -162,6 +162,40 @@
         font-size: 14px;
         font-weight: bold;
       }
+
+      .product-card {
+        background: rgba(29, 23, 23, 0.53);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.8px);
+        -webkit-backdrop-filter: blur(7.8px);
+        border: 1px solid rgba(29, 23, 23, 0.43);
+        padding: 20px;
+        text-align: center;
+        height: auto; /* Adjust height to be flexible */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .product-card img {
+        max-width: 100%;
+        max-height: 180px; /* Limit the image height */
+        height: auto;
+        border-radius: 10px;
+        align-self: center; /* Center the image */
+      }
+
+      .product-title {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #ffffff;
+      }
+
+      .product-link {
+        text-decoration: none; /* Removes underline */
+        color: inherit; /* Ensures link takes on the color of the surrounding text */
+      }
     </style>
   </head>
   <body>
