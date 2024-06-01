@@ -12,6 +12,192 @@
       href="https://fonts.googleapis.com/css?family=Quicksand:300,regular,500,600,700"
       rel="stylesheet"
     />
+    <style>
+      * {
+        font-family: "Quicksand";
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #314755;
+        background: -webkit-linear-gradient(to right, #26a0da, #314755);
+        background: linear-gradient(to right, #26a0da, #314755);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+      }
+
+      .container-fluid {
+        width: 100%;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        height: auto;
+        padding: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        margin: auto;
+        padding: 0 15px;
+      }
+
+      .container .search {
+        color: white;
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: center;
+      }
+
+      .container .search input {
+        width: 100%;
+        padding: 5px 16px;
+        border-radius: 10px;
+        background: transparent;
+        border: 2px solid #ffffff;
+        font-size: 15px;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        outline: none;
+      }
+
+      .container .search input::placeholder {
+        color: rgb(255, 255, 255);
+        font-weight: 600;
+      }
+
+      .container .product-list {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        text-align: left;
+      }
+
+      @media screen and (max-width: 479px) {
+        .product-style {
+          text-align: left;
+          object-fit: contain;
+          border-radius: 20px;
+          height: 75%;
+          padding: 4px 4px 0;
+        }
+      }
+
+      .product-style {
+        border-radius: 8px;
+        padding: 10px;
+        height: 80%;
+        object-fit: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .text-design {
+        text-decoration: none;
+        color: white;
+        text-align: center;
+      }
+
+      img {
+        border-radius: 8px;
+      }
+
+      .p {
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border: 1px solid rgba(186, 144, 144, 0.125);
+        padding: 5px;
+        display: flex;
+        object-fit: contain;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container .product-list .product img {
+        width: 100%;
+        object-fit: contain;
+        height: 200px;
+        max-width: 200px;
+      }
+
+      .student-card {
+        margin-top: 2px;
+        background-color: #454242;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      .student-img img {
+        border-radius: 50%;
+        width: 120px;
+        border: 2px solid yellow;
+        height: 120px;
+      }
+
+      .student-info h2 {
+        margin-bottom: 10px;
+      }
+
+      .student-info p {
+        color: #b0acac;
+      }
+
+      button {
+        background-color: rgb(18, 172, 18);
+        border: 2px solid white;
+        border-radius: 20px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 8px 16px; /* Added padding for button */
+      }
+
+      .product-card {
+        background: rgba(29, 23, 23, 0.53);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.8px);
+        -webkit-backdrop-filter: blur(7.8px);
+        border: 1px solid rgba(29, 23, 23, 0.43);
+        padding: 20px;
+        text-align: center;
+        height: auto; /* Adjust height to be flexible */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .product-card img {
+        max-width: 100%;
+        max-height: 180px; /* Limit the image height */
+        height: auto;
+        border-radius: 10px;
+        align-self: center; /* Center the image */
+      }
+
+      .product-title {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #ffffff;
+      }
+
+      .product-link {
+        text-decoration: none; /* Removes underline */
+        color: inherit; /* Ensures link takes on the color of the surrounding text */
+      }
+    </style>
   </head>
   <body>
     <div class="container-fluid">
@@ -49,8 +235,7 @@
           class="form-control"
         />
       </div>
-      <div id="productsContainer" class="row gy-4 product-list">
-        <!-- Product cards go here -->
+      <div id="productsContainer" class="row gy-4">
         <div class="col-6 col-md-4 col-lg-3 product">
           <a href="https://amzn.to/3wVDRwo" class="product-link">
             <div class="product-card">
@@ -73,15 +258,6 @@
           </a>
         </div>
       </div>
-
-      <div id="noResultsMessage" class="text-bold alert alert-warning fw-bold" style="display: none;">
-        Sorry, we can't find what you're looking for! Please contact us and
-        we'll do our best to help you out.
-        <a class="text-decoration:none" href="https://wa.me/+923097860772"
-          ><button>&nbsp;Contact Us For Any Assistance</button></a
-        >
-        and we'll let you know when it's available.
-      </div>
     </div>
 
     <script>
@@ -90,27 +266,19 @@
       const products = Array.from(
         productsContainer.getElementsByClassName("product")
       );
-      const noResultsMessage = document.getElementById("noResultsMessage");
 
       searchInput.addEventListener("input", () => {
         const searchTerm = searchInput.value.toLowerCase();
-        let matches = 0;
         products.forEach((product) => {
           const productName = product
             .querySelector(".product-title")
             .textContent.toLowerCase();
           if (productName.includes(searchTerm)) {
             product.style.display = "block";
-            matches++;
           } else {
             product.style.display = "none";
           }
         });
-        if (matches === 0) {
-          noResultsMessage.style.display = "block";
-        } else {
-          noResultsMessage.style.display = "none";
-        }
       });
     </script>
 
